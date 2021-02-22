@@ -1,0 +1,36 @@
+
+<form [formGroup]="updaterusersform" class="text-center border border-light p-5">
+    <p class="h4 mb-4">Welcome {{loggedinname}} : {{role}}</p>
+    <p class="h4 mb-4">Registered Users Information</p>
+    <div class="row">
+        <div class="col-sm-2 col-md-2"></div>
+        
+        <div class="col-sm-8 col-md-8">
+            <div class="table-responsive" *ngIf="role == 'Admin'">
+                <table border=1 class="table">
+                    <thead>
+                        <tr>
+                            <th>UserId</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Mobile Number</th>
+                            <th>Operation</th>
+                        </tr>
+                    </thead>
+
+                    <tr *ngFor="let regusr of regusers; let id=index" (click)="setClickedRow(regusr.userid)" class="success"> <!--each row id == id-->
+                        <td>{{ regusr.userid }}</td>
+                        <td>{{ regusr.firstname }}</td>
+                        <td>{{ regusr.lastname }}</td>
+                        <td>{{ regusr.email }}</td>
+                        <td>{{ regusr.mobileno }}</td>
+                        <button class="btn btn-danger btn-md active">Delete</button>
+                    </tr>
+                </table> 
+            </div>
+        
+        </div>
+        <div class="col-sm-2 col-md-2"></div>
+    </div>
+</form>
