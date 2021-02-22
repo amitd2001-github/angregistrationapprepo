@@ -85,12 +85,17 @@ DeleteRegisteredUser(id:number):any{
     'content-type': 'application/json',
     'Access-Control-Allow-Origin': '*'
    }
-   this.httpservice.delete<any>(this.userurl+"/"+id,
+   return this.httpservice.delete<any>(this.userurl+"/"+id,
     {'headers':headers})
+    /*
     .subscribe((data: Object | undefined) => {
       this.data = data;
-      //this.loading = false;
-    });
+      console.log("this.data " + this.data + " deleted ");
+      return new Observable<any>();
+    });*/
+    
 }
+
+
 
 }

@@ -32,7 +32,10 @@ export class HomeComponent implements OnInit {
 
   setClickedRow(id: number){
     console.log("inside setClickedRow() " + id);
-    this.registerservice.DeleteRegisteredUser(id);
+    this.registerservice.DeleteRegisteredUser(id).subscribe((data: any) => {
+      console.log("finally deleted");
+      this.ngOnInit();
+  });
 
   }
 
